@@ -84,9 +84,9 @@ import static com.bettervectordrawable.lib.graphics.drawable.MatrixExtension.*;
  * <dt><code>android:viewportHeight</code></dt>
  * <dd>Used to define the height of the viewport space. Viewport is basically
  * the virtual canvas where the paths are drawn on.</dd>
- * <dt><code>android:tint</code></dt>
+ * <dt><code>android:tintEx</code></dt>
  * <dd>The color to apply to the drawable as a tint. By default, no tint is applied.</dd>
- * <dt><code>android:tintMode</code></dt>
+ * <dt><code>android:tintModeEx</code></dt>
  * <dd>The Porter-Duff blending mode for the tint color. The default value is src_in.</dd>
  * <dt><code>android:autoMirrored</code></dt>
  * <dd>Indicates if the drawable needs to be mirrored when its layout direction is
@@ -538,11 +538,11 @@ public class VectorDrawable extends Drawable {
         state.mChangingConfigurations |= TypedArrayExtension.getChangingConfigurations(a);
         // Extract the theme attributes, if any.
         state.mThemeAttrs = extractThemeAttrs(a);
-        final int tintMode = a.getInt(R.styleable.VectorDrawable_tintMode, -1);
+        final int tintMode = a.getInt(R.styleable.VectorDrawable_tintModeEx, -1);
         if (tintMode != -1) {
             state.mTintMode = parseTintMode(tintMode, Mode.SRC_IN);
         }
-        final ColorStateList tint = a.getColorStateList(R.styleable.VectorDrawable_tint);
+        final ColorStateList tint = a.getColorStateList(R.styleable.VectorDrawable_tintEx);
         if (tint != null) {
             state.mTint = tint;
         }
